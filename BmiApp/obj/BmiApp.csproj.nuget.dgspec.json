@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/hvp/Projects/BmiApp/BmiApp/BmiApp.csproj": {}
+    "/Users/hvp/Projects/bmi/BmiApp/BmiApp.csproj": {}
   },
   "projects": {
-    "/Users/hvp/Projects/BmiApp/BmiApp/BmiApp.csproj": {
+    "/Users/hvp/Projects/bmi/BmiApp/BmiApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hvp/Projects/BmiApp/BmiApp/BmiApp.csproj",
+        "projectUniqueName": "/Users/hvp/Projects/bmi/BmiApp/BmiApp.csproj",
         "projectName": "BmiApp",
-        "projectPath": "/Users/hvp/Projects/BmiApp/BmiApp/BmiApp.csproj",
+        "projectPath": "/Users/hvp/Projects/bmi/BmiApp/BmiApp.csproj",
         "packagesPath": "/Users/hvp/.nuget/packages/",
-        "outputPath": "/Users/hvp/Projects/BmiApp/BmiApp/obj/",
+        "outputPath": "/Users/hvp/Projects/bmi/BmiApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/hvp/.nuget/NuGet/NuGet.Config"
