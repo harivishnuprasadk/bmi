@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "bmiappName": {
+      "value": "#arm_bmiappName#"
+    },
+    "bmiappSkuName": {
+      "value": "#arm_bmiappSkuName#"
+    },
+    "bmiappAdminLogin": {
+      "value": "#arm_sqlUserName#"
+    },
+    "bmiappAdminLoginPassword": {
+      "value": "#arm_sqlPassword#"
+    },
+    "bmidocumentsName": {
+      "value": "#arm_bmidocumentsName#"
+    }
+  }
+}
