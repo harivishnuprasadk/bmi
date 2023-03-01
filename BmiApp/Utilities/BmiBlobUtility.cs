@@ -13,18 +13,18 @@ namespace BmiApp.Utilities
         }
         public string GetBlobUrl(IFormFile file)
         {
-            //string storageConnStr = _configuration.GetConnectionString("Storage");
-            //BlobContainerClient blobContainerClient = new BlobContainerClient(storageConnStr, "demo");
+            string storageConnStr = _configuration.GetConnectionString("Storage");
+            BlobContainerClient blobContainerClient = new BlobContainerClient(storageConnStr, "bmidocs");
             string url = "file/test.com";
-            //using (var stream = new MemoryStream())
-            //{
-            //    file.CopyTo(stream);
-            //    stream.Position = 0;
-            //    blobContainerClient.UploadBlob($"folder1/{file.FileName}", stream);
-            //    BlobClient blobClient = new BlobClient(storageConnStr, "demo", $"folder1/{file.FileName}");
-            //    url = blobClient.Uri.AbsoluteUri;
-            //    Console.WriteLine("URL------is" + url);
-            //}
+            using (var stream = new MemoryStream())
+            {
+                file.CopyTo(stream);
+                stream.Position = 0;
+                blobContainerClient.UploadBlob($"folder1/{file.FileName}", stream);
+                BlobClient blobClient = new BlobClient(storageConnStr, "bmidocs", $"documents/{file.FileName}");
+                url = blobClient.Uri.AbsoluteUri;
+                Console.WriteLine("URL------is" + url);
+            }
             return url;
         }
     }

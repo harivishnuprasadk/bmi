@@ -5,6 +5,7 @@ using BmiApp.Services;
 using BmiApp.Models;
 using BmiApp.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BmiApp.Controllers
 {

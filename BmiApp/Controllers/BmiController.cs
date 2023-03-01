@@ -5,10 +5,13 @@ using BmiApp.Models.DTO;
 using System.Linq;
 using BmiApp.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Identity.Web.Resource;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace BmiApp.Controllers
 {
-    //[Authorize]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     [Route("api/[controller]")]
     public class BmiController : ControllerBase
@@ -30,5 +33,12 @@ namespace BmiApp.Controllers
         {
            return Ok(await _bmiService.GetAllBmiMetrics());
         }
+
+        [HttpGet("getTest")]
+        public async Task<IActionResult> Test()
+        {
+            return Ok("pass");
+        }
     }
+
 }

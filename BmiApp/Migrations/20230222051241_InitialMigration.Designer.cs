@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BmiApp.Migrations
 {
     [DbContext(typeof(BmiDbContext))]
-    [Migration("20230217084557_InitialMigration3")]
-    partial class InitialMigration3
+    [Migration("20230222051241_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

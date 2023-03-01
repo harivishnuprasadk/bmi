@@ -6,6 +6,54 @@
       "type": "string",
       "minLength": 1
     },
+    "bmiAppServiceObjId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiTenantId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiObjectId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accountPrincipalId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiSqlServerConnStr": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiStorageAccountConnStr": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiClientId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiAuthUrl": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiTokenUrl": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiApiScope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiValidAudience": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bmiValidIssuers": {
+      "type": "string",
+      "minLength": 1
+    },
     "bmiappSkuName": {
       "type": "string",
       "defaultValue": "F1",
@@ -86,7 +134,7 @@
       "type": "Microsoft.Sql/servers",
       "location": "[resourceGroup().location]",
       "apiVersion": "2014-04-01-preview",
-      "dependsOn": [ ],
+      "dependsOn": [],
       "tags": {
         "displayName": "bmiapp"
       },
@@ -149,11 +197,329 @@
       "sku": {
         "name": "[parameters('bmidocumentsType')]"
       },
-      "dependsOn": [ ],
+      "dependsOn": [],
       "tags": {
         "displayName": "bmidocuments"
       },
       "kind": "Storage"
-    }],
+    },
+    {
+      "name": "[parameters('bmiappName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2016-06-01",
+      "dependsOn": [],
+      "tags": {
+        "displayName": "bmiapp"
+      },
+      "properties": {
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "actions": {},
+          "outputs": {},
+          "parameters": {},
+          "triggers": {}
+        },
+        "parameters": {}
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2018-02-14",
+      "name": "bmikey",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "bmikey"
+      },
+      "properties": {
+        "enabledForDeployment": true,
+        "enabledForTemplateDeployment": true,
+        "enabledForDiskEncryption": true,
+        "tenantId": "[parameters('bmiTenantId')]",
+        "accessPolicies": [
+          {
+            "tenantId": "[parameters('bmiTenantId')]",
+            "objectId": "[parameters('bmiObjectId')]",
+            "permissions": {
+              "keys": [
+                "Get"
+              ],
+              "secrets": [
+                "List",
+                "Get",
+                "Set"
+              ]
+            }
+          },
+          {
+            "tenantId": "[parameters('bmiTenantId')]",
+            "objectId": "[parameters('bmiAppServiceObjId')]",
+            "permissions": {
+              "certificates": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore",
+                "ManageContacts",
+                "ManageIssuers",
+                "GetIssuers",
+                "ListIssuers",
+                "SetIssuers",
+                "DeleteIssuers"
+              ],
+              "keys": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore",
+                "GetRotationPolicy",
+                "SetRotationPolicy",
+                "Rotate"
+              ],
+              "secrets": [
+                "Get",
+                "List",
+                "Set",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+              ]
+            }
+          },
+          {
+            "tenantId": "[parameters('bmiTenantId')]",
+            "objectId": "[parameters('accountPrincipalId')]",
+            "permissions": {
+              "certificates": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore",
+                "ManageContacts",
+                "ManageIssuers",
+                "GetIssuers",
+                "ListIssuers",
+                "SetIssuers",
+                "DeleteIssuers"
+              ],
+              "keys": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore",
+                "GetRotationPolicy",
+                "SetRotationPolicy",
+                "Rotate"
+              ],
+              "secrets": [
+                "Get",
+                "List",
+                "Set",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+              ]
+            }
+          },
+          {
+            "tenantId": "[parameters('bmiTenantId')]",
+            "objectId": "497d3087-6547-429f-9d50-743741e7d2a6",
+            "permissions": {
+              "certificates": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore",
+                "ManageContacts",
+                "ManageIssuers",
+                "GetIssuers",
+                "ListIssuers",
+                "SetIssuers",
+                "DeleteIssuers"
+              ],
+              "keys": [
+                "Get",
+                "List",
+                "Update",
+                "Create",
+                "Import",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore",
+                "GetRotationPolicy",
+                "SetRotationPolicy",
+                "Rotate"
+              ],
+              "secrets": [
+                "Get",
+                "List",
+                "Set",
+                "Delete",
+                "Recover",
+                "Backup",
+                "Restore"
+              ]
+            }
+          }
+        ],
+        "sku": {
+          "name": "standard",
+          "family": "A"
+        }
+      },
+      "resources": [
+        {
+          "type": "secrets",
+          "name": "keyVaultSecret1",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "secretValue"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "tenantId",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiTenantId')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "objectId",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiObjectId')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "sqlServerConnStr",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiSqlServerConnStr')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "storageAccountConnStr",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiStorageAccountConnStr')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "clientId",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiClientId')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "authUrl",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiAuthUrl')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "tokenUrl",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiTokenUrl')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "apiScope",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiApiScope')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "validIssuers",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiValidIssuers')]"
+          }
+        },
+        {
+          "type": "secrets",
+          "name": "validAudience",
+          "apiVersion": "2016-10-01",
+          "dependsOn": [
+            "[resourceId('Microsoft.KeyVault/vaults', 'bmikey')]"
+          ],
+          "properties": {
+            "value": "[parameters('bmiValidAudience')]"
+          }
+        }
+      ]
+    }
+  ],
   "outputs": {}
 }

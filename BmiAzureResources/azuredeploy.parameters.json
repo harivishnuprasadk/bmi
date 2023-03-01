@@ -16,6 +16,42 @@
     },
     "bmidocumentsName": {
       "value": "#arm_bmidocumentsName#"
+    },
+    "bmiTenantId": {
+      "value": "#arm_bmiTenantId#"
+    },
+    "bmiObjectId": {
+      "value": "#arm_bmiObjectId#"
+    },
+    "accountPrincipalId": {
+        "value": "#arm_accountPrincipalId#" 
+    },
+    "bmiSqlServerConnStr":{
+      "value": "#arm_bmiSqlServerConnStr#" 
+    },
+    "bmiStorageAccountConnStr":{
+      "value": "#arm_bmiStorageAccountConnStr#" 
+    },
+    "bmiClientId":{
+      "value": "#arm_bmiClientId#" 
+    },
+    "bmiAuthUrl":{
+      "value": "#arm_bmiAuthUrl#" 
+    },
+    "bmiTokenUrl":{
+      "value": "#arm_bmiTokenUrl#" 
+    },
+    "bmiApiScope":{
+      "value": "#arm_bmiApiScope#" 
+    },
+    "bmiValidAudience": {
+        "value": "#arm_bmiValidAudience#" 
+    },
+    "bmiValidIssuers": {
+        "value": "#arm_bmiValidIssuers#"
+    },
+    "bmiAppServiceObjId": {
+        "value": "#arm_bmiAppServiceObjId#" 
     }
   }
 }

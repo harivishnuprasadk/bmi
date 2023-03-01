@@ -3,6 +3,7 @@ using BmiApp.Models;
 using BmiApp.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using BmiApp.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BmiApp.Controllers
 {
